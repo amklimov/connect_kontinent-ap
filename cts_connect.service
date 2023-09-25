@@ -1,0 +1,21 @@
+[Unit]
+  Description=This unit automatically connects the Kontinent-AP client to the access server
+  After=network.target
+  After=network-online.target
+
+[Service]
+  Type=simple
+  PIDFile=/var/run/cts_connect.pid
+  User=<YOUR_USER>
+  Group=<YOUR_GROUP>
+  Environment=PATH=/usr/local/bin:/usr/bin:/bin:/usr/share/cts/bin
+
+  OOMScoreAdjust=-100
+
+  ExecStart=/bin/bash /usr/bin/cts_connect.sh start
+  ExecStop=/bin/bash /usr/bin/cts_connect.sh stop
+  Restart=on-failure
+  RestartSec=5s
+
+[Install]
+  WantedBy=multi-user.target
