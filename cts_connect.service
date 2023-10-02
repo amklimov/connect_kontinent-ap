@@ -13,7 +13,8 @@
   OOMScoreAdjust=-100
 
   ExecStart=/bin/bash /usr/bin/cts_connect.sh start
-  ExecStop=/bin/bash /usr/bin/cts_connect.sh stop
+  ExecStop=/bin/kill -3 $MAINPID
+  ExecReload=/bin/kill -HUP $MAINPID
   Restart=on-failure
   RestartSec=5s
 
