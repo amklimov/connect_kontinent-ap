@@ -1,0 +1,1 @@
+This unit automatically connects the Kontinent-AP client host to the cryptomarrutizer, including when the connection is broken. For the service to work on your host, it is necessary in the script cts_connect.sh replace "IP_ADDRESS:PORT" to your current values.
